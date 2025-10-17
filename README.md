@@ -47,38 +47,42 @@ El parámetro `-y` responde automáticamente si a todas las confirmaciones duran
 ```bash
 apt install php libapache2-mod-php php-mysql -y
 ```
-Instala **PHP** y los módulos necesarios para integrarlo con Apache y MySQL:
-- `php`: el lenguaje de programación del lado del servidor.  
-- `libapache2-mod-php`: módulo que permite que Apache ejecute archivos `.php`.  
-- `php-mysql`: extensión que permite a PHP conectarse con bases de datos MySQL/MariaDB.  
-El `-y` nuevamente evita que el sistema solicite confirmación manual.
+Instala PHP y los módulos necesarios para integrarlo con Apache y MySQL:
+- php: el lenguaje de programación del lado del servidor.  
+- libapache2-mod-php: módulo que permite que Apache ejecute archivos .php.  
+- php-mysql: extensión que permite a PHP conectarse con bases de datos MySQL/MariaDB.  
+El -y nuevamente evita que el sistema solicite confirmación manual.
 
 ---
 
 ```bash
 cp ../conf/000-default.conf /etc/apache2/sites-available/000-default.conf
 ```
-Copia el archivo de configuración del sitio web por defecto desde el directorio `../conf/` (carpeta superior) hacia la ruta real de configuración de Apache:  
-`/etc/apache2/sites-available/000-default.conf`.
-
-Esto permite aplicar una configuración personalizada al sitio web principal.
+Copia el archivo de configuración del sitio web por defecto hacia la ruta real de configuración de Apache.
 
 ---
 
 ```bash
 systemctl restart apache2
 ```
-Reinicia el servicio **Apache2** para que se apliquen los cambios realizados en su configuración.  
-`systemctl` es el comando de control de servicios en sistemas que usan *systemd*.
+Reinicia el servicio Apache2 para que se apliquen los cambios realizados en su configuración.
 
 ---
 
 ```bash
 cp ../php/index.php /var/www/html
 ```
-Copia el archivo `index.php` desde la carpeta `../php/` (una carpeta superior) hasta el directorio raíz del servidor web `/var/www/html`.  
-De esta forma, Apache servirá este archivo cuando se acceda a `http://localhost/`.
+Copia el index.php hasta el directorio raíz del servidor web /var/www/html para que se abra directamente ese.  
+
 
 ---
 
 ## Resultado
+
+Script ejecutado:
+
+![alt text](image.png)
+
+Index.php:
+
+![alt text](image-1.png)
